@@ -47,3 +47,96 @@ for (const num of numbers) {
 }
 
 console.log(smallNumbers);
+
+/*
+4. Use `for-of` loop to iterate through the array `["chai", "green tea", "herbal tea", "black tea"]` and skip "herbal tea".
+Store the other teas in an array named `preferredTeas`.
+*/
+
+let teaTypes = ["chai", "green tea", "herbal tea", "black tea"];
+let preferredTeas = [];
+
+for (const tea of teaTypes) {
+  if (tea === "herbal tea") {
+    continue;
+  }
+  preferredTeas.push(tea);
+}
+
+console.log(preferredTeas);
+
+/*
+5. Use a `for-in` loop to loop through an object containing city populations. Stop the loop when the population of `"Berlin"` is found and store all the previous cities` populations in a new object named `cityNewPopulations`. 
+
+let citiesPopulation = {
+  "London": 8900000,
+  "New York": 8400000,
+  "Paris": 2200000,
+  "Berlin": 3500000
+};
+*/
+
+let citiesPopulation = {
+  London: 8900000,
+  "New York": 8400000,
+  Paris: 2200000,
+  Berlin: 3500000,
+};
+
+let cityNewPopulations = {};
+// console.log(Object.keys(citiesPopulation))
+// console.log(Object.values(citiesPopulation));
+
+for (const city in citiesPopulation) {
+  if (city == "Berlin") {
+    break;
+  }
+  cityNewPopulations[city] = citiesPopulation[city];
+}
+
+console.log(cityNewPopulations);
+
+/*
+6. Use a `for-in` loop to loop through an object containing city populations. Skip any city with a population below 3 million and store the rest in a new object named `largeCities`.
+
+let worldCities = {
+  "Sydney": 5000000,
+  "Tokyo": 9000000,
+  "Berlin": 3500000,
+  "Paris": 2200000,
+};
+*/
+
+let worldCities = {
+  Sydney: 5000000,
+  Tokyo: 9000000,
+  Berlin: 3500000,
+  Paris: 2200000,
+};
+
+let largeCities = {};
+
+for (const city in worldCities) {
+  if (worldCities[city] < 3000000) {
+    continue;
+  }
+  largeCities[city] = worldCities[city];
+}
+
+console.log(largeCities);
+
+/*
+7. Write a `forEach` loop that iterates through the array `["earl grey", "green tea", "chai", "oolong tea"]`. Stop the loop when "chai" is found, and store all previous tea types in an array named `availableTeas`.
+*/
+
+let teaCollection = ["earl grey", "green tea", "chai", "oolong tea"];
+let availableTeas = [];
+
+teaCollection.forEach(function (tea) {
+  if (tea === "chai") {
+    return;
+  }
+  availableTeas.push(tea);
+});
+
+console.log(availableTeas);
